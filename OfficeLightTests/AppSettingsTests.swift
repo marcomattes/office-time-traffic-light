@@ -3,7 +3,7 @@ import Testing
 
 /// Uses a throwaway UserDefaults suite so the tests never touch the real settings.
 @Suite final class AppSettingsTests {
-    private let suiteName = "de.marcomattes.OfficeLightTests.\(UUID().uuidString)"
+    private let suiteName = "dev.mattes.officelight.tests.\(UUID().uuidString)"
     private let defaults: UserDefaults
     private let settings: AppSettings
 
