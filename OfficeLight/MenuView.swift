@@ -36,6 +36,13 @@ struct MenuView: View {
                     Text("\(model.day.officeTime.hoursMinutes) / \(model.settings.dailyGoal.hoursMinutes)")
                         .monospacedDigit()
                 }
+                if model.state == .red, model.match != nil, let goalTime = model.dailyGoalTime {
+                    GridRow {
+                        Text("Daily goal at").foregroundStyle(.secondary)
+                        Text(goalTime, format: .dateTime.hour().minute())
+                            .monospacedDigit()
+                    }
+                }
                 if let first = model.day.firstDetection, let last = model.day.lastDetection {
                     GridRow {
                         Text("In the office").foregroundStyle(.secondary)
@@ -45,7 +52,7 @@ struct MenuView: View {
                 }
                 GridRow {
                     Text("Network").foregroundStyle(.secondary)
-                    Text(model.match?.shortDescription ?? "not on an office network")
+                    Text(model.match?.shortDescription ?? String(localized: "not on an office network"))
                         .help(model.match?.description ?? "")
                 }
             }
@@ -75,15 +82,15 @@ struct MenuView: View {
 
     private var headline: String {
         switch model.state {
-        case .gray: "No office time yet today"
-        case .red: "\(model.remainingTime.hoursMinutes) left until the daily goal"
-        case .green: "Daily goal reached"
+        case .gray: String(localized: "No office time yet today")
+        case .red: String(localized: "\(model.remainingTime.hoursMinutes) left until the daily goal")
+        case .green: String(localized: "Daily goal reached")
         }
     }
 }
 
 private struct Notice: View {
-    let text: String
+    let text: LocalizedStringKey
 
     var body: some View {
         Label(text, systemImage: "exclamationmark.triangle")

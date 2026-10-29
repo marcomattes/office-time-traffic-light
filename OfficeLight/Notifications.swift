@@ -13,8 +13,8 @@ enum Notifications {
     /// The one-time notification when the daily goal is reached.
     static func dailyGoalReached(officeTime: TimeInterval) {
         let content = UNMutableNotificationContent()
-        content.title = "Daily goal reached"
-        content.body = "Office time today: \(officeTime.hoursMinutes)"
+        content.title = String(localized: "Daily goal reached")
+        content.body = String(localized: "Office time today: \(officeTime.hoursMinutes)")
         content.sound = .default
         let request = UNNotificationRequest(identifier: "dailyGoal", content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request)

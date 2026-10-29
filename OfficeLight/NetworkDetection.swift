@@ -5,7 +5,7 @@ import Foundation
 import notify
 import Observation
 
-struct InterfaceAddress: Equatable {
+struct InterfaceAddress: Hashable {
     let interface: String
     let value: UInt32
 

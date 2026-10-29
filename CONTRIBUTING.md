@@ -9,7 +9,17 @@ Thanks for your interest. Office Light is a small, single-purpose tool, so contr
 
 ## Building
 
-Open `OfficeLight.xcodeproj` in Xcode 27 or later and run the `OfficeLight` scheme, or use `scripts/install.sh`. See the README for signing and permissions.
+Open `OfficeLight.xcodeproj` in Xcode 26 or later and run the `OfficeLight` scheme, or use `scripts/install.sh`. See the README for signing and permissions.
+
+## Tests
+
+Unit tests live in `OfficeLightTests` and use Swift Testing. The test target compiles the app's source files directly (everything except the entry point and resources), so the tests run without launching the app or asking for permissions:
+
+```sh
+xcodebuild test -project OfficeLight.xcodeproj -scheme OfficeLight -destination 'platform=macOS'
+```
+
+Logic that is easy to test in isolation, such as `IPv4Range`, `DayRecord` or the settings matching, belongs there. Anything that needs CoreWLAN, Location Services or the menu bar is verified by hand on a Mac. CI runs the tests on every push and pull request.
 
 ## Code
 
@@ -17,10 +27,12 @@ Open `OfficeLight.xcodeproj` in Xcode 27 or later and run the `OfficeLight` sche
 - No third-party dependencies.
 - Use the terms from `GLOSSARY.md` for names in code and UI, and avoid the listed alternatives.
 - Comments explain *why*, not *what*. Keep them in English.
-- There are no automated tests at the moment. If you add logic that is easy to test in isolation (such as `IPv4Range`), tests are welcome.
+- UI strings are plain English literals in SwiftUI views and `String(localized:)` elsewhere. Add the German translation for every new string to `OfficeLight/Localizable.xcstrings`.
+- Keep the deployment target at macOS 14 unless a feature really needs a newer API.
 
 ## Pull requests
 
 - Keep each pull request focused on one change.
 - Describe what changed and why, and how you verified it on your Mac.
+- Add a line to `CHANGELOG.md` under the unreleased version.
 - Don't commit your development team ID or other signing settings into `project.pbxproj`.

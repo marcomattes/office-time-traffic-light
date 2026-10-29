@@ -9,4 +9,5 @@ xcuserdata/
 
 # Local planning notes and tool settings
 .local/
+CLAUDE.local.md
 .claude/settings.local.json

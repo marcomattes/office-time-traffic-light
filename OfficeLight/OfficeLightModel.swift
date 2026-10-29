@@ -7,9 +7,9 @@ enum LightState {
 
     var label: String {
         switch self {
-        case .gray: "no office time yet today"
-        case .red: "daily goal not reached"
-        case .green: "daily goal reached"
+        case .gray: String(localized: "no office time yet today")
+        case .red: String(localized: "daily goal not reached")
+        case .green: String(localized: "daily goal reached")
         }
     }
 }
@@ -25,6 +25,11 @@ struct DayRecord: Codable, Equatable {
     var officeTime: TimeInterval {
         guard let first = firstDetection, let last = lastDetection else { return 0 }
         return max(0, last.timeIntervalSince(first))
+    }
+
+    /// When the daily goal will be reached if the Mac stays on an office network; `nil` before the first detection.
+    func dailyGoalTime(dailyGoal: TimeInterval) -> Date? {
+        firstDetection.map { $0.addingTimeInterval(dailyGoal) }
     }
 }
 
@@ -57,6 +62,17 @@ final class OfficeLightModel {
 
     var remainingTime: TimeInterval {
         max(0, settings.dailyGoal - day.officeTime)
+    }
+
+    /// When the daily goal will be reached if the Mac stays on an office network.
+    var dailyGoalTime: Date? {
+        day.dailyGoalTime(dailyGoal: settings.dailyGoal)
+    }
+
+    /// Discards today's record and starts over, e.g. after the Wi-Fi flapped or the Mac stayed in the office overnight.
+    func resetToday() {
+        day = DayRecord(date: Self.dateString(.now))
+        check()
     }
 
     func check(now: Date = .now) {

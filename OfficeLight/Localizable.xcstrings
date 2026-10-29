@@ -1,0 +1,372 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ / %@": {
+      "shouldTranslate": false
+    },
+    "%@ left until the daily goal": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch %@ bis zum Tagesziel"
+          }
+        }
+      }
+    },
+    "%@ – %@": {
+      "shouldTranslate": false
+    },
+    "Add": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hinzufügen"
+          }
+        }
+      }
+    },
+    "Daily goal": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tagesziel"
+          }
+        }
+      }
+    },
+    "Daily goal at": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tagesziel um"
+          }
+        }
+      }
+    },
+    "Daily goal reached": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tagesziel erreicht"
+          }
+        }
+      }
+    },
+    "Discards today's record and starts over, e.g. after the Wi-Fi flapped or the Mac stayed in the office.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwirft die Aufzeichnung von heute und beginnt neu, z. B. nachdem das WLAN gesprungen ist oder der Mac im Büro geblieben ist."
+          }
+        }
+      }
+    },
+    "In the office": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Im Büro"
+          }
+        }
+      }
+    },
+    "Launch at login": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bei der Anmeldung starten"
+          }
+        }
+      }
+    },
+    "Network": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Netzwerk"
+          }
+        }
+      }
+    },
+    "No Location Services access: the SSID is unknown, only IP ranges count.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kein Zugriff auf Ortungsdienste: Die SSID ist unbekannt, nur IP-Bereiche zählen."
+          }
+        }
+      }
+    },
+    "No office network configured yet.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch kein Büronetzwerk eingerichtet."
+          }
+        }
+      }
+    },
+    "No office time yet today": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heute noch keine Bürozeit"
+          }
+        }
+      }
+    },
+    "Office IP ranges (IPv4, CIDR)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IP-Bereiche im Büro (IPv4, CIDR)"
+          }
+        }
+      }
+    },
+    "Office Light: %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Office Light: %@"
+          }
+        }
+      }
+    },
+    "Office Wi-Fi networks (SSID)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WLAN-Netzwerke im Büro (SSID)"
+          }
+        }
+      }
+    },
+    "Office time": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bürozeit"
+          }
+        }
+      }
+    },
+    "Office time today: %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bürozeit heute: %@"
+          }
+        }
+      }
+    },
+    "Open System Settings": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Systemeinstellungen öffnen"
+          }
+        }
+      }
+    },
+    "Quit": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beenden"
+          }
+        }
+      }
+    },
+    "Quota": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quote"
+          }
+        }
+      }
+    },
+    "Reset today's office time": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bürozeit von heute zurücksetzen"
+          }
+        }
+      }
+    },
+    "SSID": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SSID"
+          }
+        }
+      }
+    },
+    "Scheduled hours": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sollarbeitszeit"
+          }
+        }
+      }
+    },
+    "Settings…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen …"
+          }
+        }
+      }
+    },
+    "Startup": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start"
+          }
+        }
+      }
+    },
+    "Today": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heute"
+          }
+        }
+      }
+    },
+    "Use %@ (%@: %@)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ verwenden (%2$@: %3$@)"
+          }
+        }
+      }
+    },
+    "Use current Wi-Fi": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktuelles WLAN verwenden"
+          }
+        }
+      }
+    },
+    "Wi-Fi “%@”": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WLAN „%@“"
+          }
+        }
+      }
+    },
+    "Wi-Fi “*****”": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WLAN „*****“"
+          }
+        }
+      }
+    },
+    "Without Location Services access the SSID can't be read.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ohne Zugriff auf Ortungsdienste kann die SSID nicht gelesen werden."
+          }
+        }
+      }
+    },
+    "daily goal not reached": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tagesziel nicht erreicht"
+          }
+        }
+      }
+    },
+    "daily goal reached": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tagesziel erreicht"
+          }
+        }
+      }
+    },
+    "e.g. 10.20.0.0/16": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "z. B. 10.20.0.0/16"
+          }
+        }
+      }
+    },
+    "no office time yet today": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "heute noch keine Bürozeit"
+          }
+        }
+      }
+    },
+    "not on an office network": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "nicht im Büronetzwerk"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

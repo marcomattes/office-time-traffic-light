@@ -1,4 +1,6 @@
 # Office Light
 
-- Planning runs via `/wayfinder`; the map lives at `.local/buero-ampel/map.md`, the tickets under `.local/buero-ampel/issues/`. The Local Markdown Tracker conventions apply, with `.local/` instead of `.scratch/`. `.local/` is git-ignored and not part of the published repository.
-- Domain terms: `GLOSSARY.md`.
+- Domain terms: `GLOSSARY.md`. Coding conventions and scope: `CONTRIBUTING.md`.
+- Build and install: `scripts/install.sh`. Tests: `xcodebuild test -project OfficeLight.xcodeproj -scheme OfficeLight -destination 'platform=macOS'`.
+- UI strings are English literals in code and translated in `OfficeLight/Localizable.xcstrings`; add the German translation for every new string.
+- Personal planning notes and tool settings live in `CLAUDE.local.md` and `.local/`, both git-ignored.

@@ -9,18 +9,48 @@
 /* Begin PBXFileReference section */
 		B0A000000000000000000001 /* OfficeLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OfficeLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A000000000000000000002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0A000000000000000000012 /* OfficeLightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OfficeLightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B0A000000000000000000014 /* Exceptions for "OfficeLight" folder in "OfficeLightTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				InfoPlist.xcstrings,
+				Localizable.xcstrings,
+				OfficeLightApp.swift,
+				PrivacyInfo.xcprivacy,
+			);
+			target = B0A000000000000000000018 /* OfficeLightTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B0A000000000000000000003 /* OfficeLight */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B0A000000000000000000014 /* Exceptions for "OfficeLight" folder in "OfficeLightTests" target */,
+			);
 			path = OfficeLight;
+			sourceTree = "<group>";
+		};
+		B0A000000000000000000013 /* OfficeLightTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = OfficeLightTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B0A000000000000000000004 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A000000000000000000015 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -34,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A000000000000000000003 /* OfficeLight */,
+				B0A000000000000000000013 /* OfficeLightTests */,
 				B0A000000000000000000006 /* Support */,
 				B0A000000000000000000007 /* Products */,
 			);
@@ -51,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A000000000000000000001 /* OfficeLight.app */,
+				B0A000000000000000000012 /* OfficeLightTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,6 +112,29 @@
 			productReference = B0A000000000000000000001 /* OfficeLight.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B0A000000000000000000018 /* OfficeLightTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0A00000000000000000001B /* Build configuration list for PBXNativeTarget "OfficeLightTests" */;
+			buildPhases = (
+				B0A000000000000000000016 /* Sources */,
+				B0A000000000000000000015 /* Frameworks */,
+				B0A000000000000000000017 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B0A000000000000000000003 /* OfficeLight */,
+				B0A000000000000000000013 /* OfficeLightTests */,
+			);
+			name = OfficeLightTests;
+			packageProductDependencies = (
+			);
+			productName = OfficeLightTests;
+			productReference = B0A000000000000000000012 /* OfficeLightTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +148,9 @@
 					B0A000000000000000000008 = {
 						CreatedOnToolsVersion = 27.1;
 					};
+					B0A000000000000000000018 = {
+						CreatedOnToolsVersion = 27.1;
+					};
 				};
 			};
 			buildConfigurationList = B0A00000000000000000000D /* Build configuration list for PBXProject "OfficeLight" */;
@@ -101,6 +159,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = B0A000000000000000000005;
 			minimizedProjectReferenceProxies = 1;
@@ -110,6 +169,7 @@
 			projectRoot = "";
 			targets = (
 				B0A000000000000000000008 /* OfficeLight */,
+				B0A000000000000000000018 /* OfficeLightTests */,
 			);
 		};
 /* End PBXProject section */
@@ -122,10 +182,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0A000000000000000000017 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B0A00000000000000000000A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A000000000000000000016 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -151,7 +225,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -171,7 +245,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -181,23 +255,28 @@
 		B0A000000000000000000010 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R2Y8T3576J;
 				ENABLE_APP_SANDBOX = NO;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Office Light";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSLocationUsageDescription = "Office Light reads the SSID of the connected Wi-Fi network to detect whether you're on an office network. Your location is not used.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Office Light reads the SSID of the connected Wi-Fi network to detect whether you're on an office network. Your location is not used.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.marcomattes.OfficeLight;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mattes.officelight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -209,27 +288,66 @@
 		B0A000000000000000000011 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R2Y8T3576J;
 				ENABLE_APP_SANDBOX = NO;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Office Light";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSLocationUsageDescription = "Office Light reads the SSID of the connected Wi-Fi network to detect whether you're on an office network. Your location is not used.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Office Light reads the SSID of the connected Wi-Fi network to detect whether you're on an office network. Your location is not used.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = de.marcomattes.OfficeLight;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mattes.officelight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		B0A000000000000000000019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.marcomattes.OfficeLightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		B0A00000000000000000001A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.marcomattes.OfficeLightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
@@ -251,6 +369,15 @@
 			buildConfigurations = (
 				B0A00000000000000000000E /* Debug */,
 				B0A00000000000000000000F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0A00000000000000000001B /* Build configuration list for PBXNativeTarget "OfficeLightTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0A000000000000000000019 /* Debug */,
+				B0A00000000000000000001A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

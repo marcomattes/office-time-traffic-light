@@ -52,7 +52,7 @@ struct SettingsView: View {
                     }
                     .disabled(IPv4Range(newRange) == nil)
                 }
-                ForEach(model.network.state.addresses, id: \.interface) { address in
+                ForEach(model.network.state.addresses, id: \.self) { address in
                     Button("Use \(IPv4Range.slash24(around: address.value)) (\(address.interface): \(address.text))") {
                         add(IPv4Range.slash24(around: address.value), to: &settings.ipRanges)
                     }
@@ -67,6 +67,12 @@ struct SettingsView: View {
                     LabeledContent("Quota", value: "\(settings.quotaPercent) %")
                 }
                 LabeledContent("Daily goal", value: settings.dailyGoal.hoursMinutes)
+            }
+
+            Section("Today") {
+                Button("Reset today's office time") { model.resetToday() }
+                Text("Discards today's record and starts over, e.g. after the Wi-Fi flapped or the Mac stayed in the office.")
+                    .font(.caption).foregroundStyle(.secondary)
             }
 
             Section("Startup") {

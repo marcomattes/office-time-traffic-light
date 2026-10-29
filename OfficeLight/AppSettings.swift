@@ -69,14 +69,14 @@ enum OfficeMatch: Equatable {
     /// Without the SSID; that only appears in `description` (tooltip).
     var shortDescription: String {
         switch self {
-        case .ssid: "Wi-Fi “*****”"
+        case .ssid: String(localized: "Wi-Fi “*****”")
         case .ipRange: description
         }
     }
 
     var description: String {
         switch self {
-        case .ssid(let ssid): "Wi-Fi “\(ssid)”"
+        case .ssid(let ssid): String(localized: "Wi-Fi “\(ssid)”")
         case .ipRange(let range, let address): "\(address.text) (\(address.interface)) in \(range)"
         }
     }
