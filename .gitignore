@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# Local planning notes and tool settings
+.local/
+.claude/settings.local.json
