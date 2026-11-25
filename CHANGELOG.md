@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Break (default 45 min) in Settings; it is added to the daily goal because office time includes it.
+- Office days: the menu shows how many days this month the daily goal was reached, against a monthly goal of working days (Monday to Friday) × monthly quota (default 50 %).
+
 ## 0.1.0 – 2026-10-29
 
 First release.

@@ -20,17 +20,27 @@ import Testing
         }
     }
 
-    @Test func defaultsAreEightHoursAtEightyPercent() {
+    @Test func defaultsAreEightHoursAtEightyPercentPlusBreak() {
         #expect(settings.scheduledMinutes == 8 * 60)
         #expect(settings.quotaPercent == 80)
-        #expect(settings.dailyGoal == 6 * 3600 + 24 * 60)
+        #expect(settings.breakMinutes == 45)
+        #expect(settings.monthlyQuotaPercent == 50)
+        #expect(settings.dailyGoal == 7 * 3600 + 9 * 60) // 6:24 + 0:45
         #expect(!settings.hasOfficeNetwork)
     }
 
     @Test func dailyGoalFollowsScheduledHoursAndQuota() {
         settings.scheduledMinutes = 10 * 60
         settings.quotaPercent = 50
+        settings.breakMinutes = 0
         #expect(settings.dailyGoal == 5 * 3600)
+    }
+
+    @Test func breakIsAddedToTheDailyGoal() {
+        settings.scheduledMinutes = 8 * 60
+        settings.quotaPercent = 100
+        settings.breakMinutes = 30
+        #expect(settings.dailyGoal == 8 * 3600 + 30 * 60)
     }
 
     @Test func settingsPersistAcrossInstances() {
@@ -38,12 +48,16 @@ import Testing
         settings.ipRanges = ["10.20.0.0/16"]
         settings.scheduledMinutes = 7 * 60
         settings.quotaPercent = 60
+        settings.breakMinutes = 30
+        settings.monthlyQuotaPercent = 40
 
         let reloaded = AppSettings(defaults: defaults)
         #expect(reloaded.ssids == ["Office"])
         #expect(reloaded.ipRanges == ["10.20.0.0/16"])
         #expect(reloaded.scheduledMinutes == 7 * 60)
         #expect(reloaded.quotaPercent == 60)
+        #expect(reloaded.breakMinutes == 30)
+        #expect(reloaded.monthlyQuotaPercent == 40)
     }
 
     @Test func matchesAConfiguredSSID() {

@@ -51,6 +51,17 @@ struct MenuView: View {
                     }
                 }
                 GridRow {
+                    Text("Office days this month").foregroundStyle(.secondary)
+                    HStack(spacing: 4) {
+                        Text("\(model.month.officeDays) / \(model.month.monthlyGoal)")
+                            .monospacedDigit()
+                        if model.month.isReached {
+                            Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
+                        }
+                    }
+                    .help(String(localized: "Monthly goal: \(model.month.monthlyGoal) of \(model.month.workingDays) working days"))
+                }
+                GridRow {
                     Text("Network").foregroundStyle(.secondary)
                     Text(model.match?.shortDescription ?? String(localized: "not on an office network"))
                         .help(model.match?.description ?? "")

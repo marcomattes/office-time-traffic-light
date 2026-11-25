@@ -5,7 +5,7 @@ Thanks for your interest. Office Light is a small, single-purpose tool, so contr
 ## Before you start
 
 - Open an issue for anything beyond a bug fix or a small improvement, so we can agree on the direction first.
-- Features that are intentionally out of scope: history and statistics, multi-user support, holiday or work calendars, and an early warning before the daily goal.
+- Features that are intentionally out of scope: history and statistics beyond the current month's office days, multi-user support, holiday or work calendars, and an early warning before the daily goal.
 
 ## Building
 
@@ -19,7 +19,7 @@ Unit tests live in `OfficeLightTests` and use Swift Testing. The test target com
 xcodebuild test -project OfficeLight.xcodeproj -scheme OfficeLight -destination 'platform=macOS'
 ```
 
-Logic that is easy to test in isolation, such as `IPv4Range`, `DayRecord` or the settings matching, belongs there. Anything that needs CoreWLAN, Location Services or the menu bar is verified by hand on a Mac. CI runs the tests on every push and pull request.
+Logic that is easy to test in isolation, such as `IPv4Range`, `DayRecord`, `OfficeMonth` or the settings matching, belongs there. Anything that needs CoreWLAN, Location Services or the menu bar is verified by hand on a Mac. CI runs the tests on every push and pull request.
 
 ## Code
 

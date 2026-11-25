@@ -31,22 +31,31 @@ struct DayRecord: Codable, Equatable {
     func dailyGoalTime(dailyGoal: TimeInterval) -> Date? {
         firstDetection.map { $0.addingTimeInterval(dailyGoal) }
     }
+
+    /// Local date as `yyyy-MM-dd`.
+    static func dateString(_ date: Date, calendar: Calendar = .current) -> String {
+        let parts = calendar.dateComponents([.year, .month, .day], from: date)
+        return String(format: "%04d-%02d-%02d", parts.year ?? 0, parts.month ?? 0, parts.day ?? 0)
+    }
 }
 
 /// Checks every minute, on every network change and before sleep whether the Mac is on an office network,
-/// and keeps today's office time up to date from that.
+/// and keeps today's office time and the office days up to date from that.
 @Observable
 final class OfficeLightModel {
     let settings = AppSettings()
     let network = NetworkDetection()
     private(set) var day: DayRecord
     private(set) var match: OfficeMatch?
+    /// Dates (`yyyy-MM-dd`) on which the daily goal was reached.
+    private(set) var officeDays: Set<String>
 
     @ObservationIgnored private let defaults = UserDefaults.standard
     @ObservationIgnored private var observers: [NSObjectProtocol] = []
 
     init() {
-        day = Self.loadDay(from: defaults) ?? DayRecord(date: Self.dateString(.now))
+        day = Self.loadDay(from: defaults) ?? DayRecord(date: DayRecord.dateString(.now))
+        officeDays = Set(defaults.stringArray(forKey: Key.officeDays) ?? [])
         network.onChange = { [weak self] in self?.check() }
         observeSystem()
         startTimer()
@@ -69,14 +78,22 @@ final class OfficeLightModel {
         day.dailyGoalTime(dailyGoal: settings.dailyGoal)
     }
 
+    /// This month's office days against the monthly goal.
+    var month: OfficeMonth {
+        OfficeMonth(containing: .now, officeDays: officeDays, quotaPercent: settings.monthlyQuotaPercent)
+    }
+
     /// Discards today's record and starts over, e.g. after the Wi-Fi flapped or the Mac stayed in the office overnight.
+    /// Today no longer counts as an office day until the daily goal is reached again.
     func resetToday() {
-        day = DayRecord(date: Self.dateString(.now))
+        officeDays.remove(day.date)
+        saveOfficeDays()
+        day = DayRecord(date: DayRecord.dateString(.now))
         check()
     }
 
     func check(now: Date = .now) {
-        let today = Self.dateString(now)
+        let today = DayRecord.dateString(now)
         if day.date != today {
             day = DayRecord(date: today)
         }
@@ -90,9 +107,14 @@ final class OfficeLightModel {
             day.lastDetection = now
         }
 
-        if state == .green, !day.notificationSent {
-            day.notificationSent = true
-            Notifications.dailyGoalReached(officeTime: day.officeTime)
+        if state == .green {
+            if officeDays.insert(day.date).inserted {
+                saveOfficeDays()
+            }
+            if !day.notificationSent {
+                day.notificationSent = true
+                Notifications.dailyGoalReached(officeTime: day.officeTime)
+            }
         }
 
         saveDay()
@@ -122,18 +144,22 @@ final class OfficeLightModel {
 
     private func saveDay() {
         if let data = try? JSONEncoder().encode(day) {
-            defaults.set(data, forKey: "today")
+            defaults.set(data, forKey: Key.today)
         }
     }
 
+    private func saveOfficeDays() {
+        defaults.set(officeDays.sorted(), forKey: Key.officeDays)
+    }
+
     private static func loadDay(from defaults: UserDefaults) -> DayRecord? {
-        guard let data = defaults.data(forKey: "today") else { return nil }
+        guard let data = defaults.data(forKey: Key.today) else { return nil }
         return try? JSONDecoder().decode(DayRecord.self, from: data)
     }
 
-    private static func dateString(_ date: Date) -> String {
-        let parts = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        return String(format: "%04d-%02d-%02d", parts.year ?? 0, parts.month ?? 0, parts.day ?? 0)
+    private enum Key {
+        static let today = "today"
+        static let officeDays = "officeDays"
     }
 }
 

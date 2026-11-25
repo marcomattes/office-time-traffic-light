@@ -17,12 +17,45 @@
     "%@ – %@": {
       "shouldTranslate": false
     },
+    "%lld / %lld": {
+      "shouldTranslate": false
+    },
+    "%lld of %lld working days": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld von %2$lld Arbeitstagen"
+          }
+        }
+      }
+    },
+    "A day counts as an office day once its daily goal is reached. Working days are Monday to Friday; holidays and vacation are not deducted.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ein Tag zählt als Bürotag, sobald sein Tagesziel erreicht ist. Arbeitstage sind Montag bis Freitag; Feiertage und Urlaub werden nicht abgezogen."
+          }
+        }
+      }
+    },
     "Add": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
             "value": "Hinzufügen"
+          }
+        }
+      }
+    },
+    "Break": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
           }
         }
       }
@@ -83,6 +116,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bei der Anmeldung starten"
+          }
+        }
+      }
+    },
+    "Monthly goal": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monatsziel"
+          }
+        }
+      }
+    },
+    "Monthly goal: %lld of %lld working days": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monatsziel: %1$lld von %2$lld Arbeitstagen"
           }
         }
       }
@@ -157,12 +210,32 @@
         }
       }
     },
+    "Office days this month": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bürotage diesen Monat"
+          }
+        }
+      }
+    },
     "Office time": {
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
             "value": "Bürozeit"
+          }
+        }
+      }
+    },
+    "Office time includes the break, so the daily goal adds it on top.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Bürozeit enthält die Pause, deshalb kommt sie zum Tagesziel hinzu."
           }
         }
       }

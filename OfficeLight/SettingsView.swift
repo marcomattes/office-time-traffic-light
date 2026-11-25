@@ -66,7 +66,23 @@ struct SettingsView: View {
                 Stepper(value: $settings.quotaPercent, in: 10...100, step: 5) {
                     LabeledContent("Quota", value: "\(settings.quotaPercent) %")
                 }
+                Stepper(value: $settings.breakMinutes, in: 0...120, step: 5) {
+                    LabeledContent("Break", value: TimeInterval(settings.breakMinutes * 60).hoursMinutes)
+                }
                 LabeledContent("Daily goal", value: settings.dailyGoal.hoursMinutes)
+                Text("Office time includes the break, so the daily goal adds it on top.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
+
+            Section("Monthly goal") {
+                Stepper(value: $settings.monthlyQuotaPercent, in: 10...100, step: 5) {
+                    LabeledContent("Quota", value: "\(settings.monthlyQuotaPercent) %")
+                }
+                LabeledContent("Monthly goal") {
+                    Text("\(model.month.monthlyGoal) of \(model.month.workingDays) working days")
+                }
+                Text("A day counts as an office day once its daily goal is reached. Working days are Monday to Friday; holidays and vacation are not deducted.")
+                    .font(.caption).foregroundStyle(.secondary)
             }
 
             Section("Today") {

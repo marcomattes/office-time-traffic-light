@@ -1,7 +1,7 @@
 import Foundation
 import Observation
 
-/// Office networks, scheduled hours and quota. Stored in the app's UserDefaults.
+/// Office networks, scheduled hours, break and quotas. Stored in the app's UserDefaults.
 @Observable
 final class AppSettings {
     var ssids: [String] {
@@ -21,6 +21,15 @@ final class AppSettings {
         didSet { defaults.set(quotaPercent, forKey: Key.quotaPercent) }
     }
 
+    var breakMinutes: Int {
+        didSet { defaults.set(breakMinutes, forKey: Key.breakMinutes) }
+    }
+
+    /// Share of the month's working days that should be office days.
+    var monthlyQuotaPercent: Int {
+        didSet { defaults.set(monthlyQuotaPercent, forKey: Key.monthlyQuotaPercent) }
+    }
+
     @ObservationIgnored private let defaults: UserDefaults
 
     init(defaults: UserDefaults = .standard) {
@@ -29,11 +38,14 @@ final class AppSettings {
         ipRanges = defaults.stringArray(forKey: Key.ipRanges) ?? []
         scheduledMinutes = defaults.object(forKey: Key.scheduledMinutes) as? Int ?? 8 * 60
         quotaPercent = defaults.object(forKey: Key.quotaPercent) as? Int ?? 80
+        breakMinutes = defaults.object(forKey: Key.breakMinutes) as? Int ?? 45
+        monthlyQuotaPercent = defaults.object(forKey: Key.monthlyQuotaPercent) as? Int ?? 50
     }
 
-    /// Daily goal = scheduled hours × quota.
+    /// Daily goal = scheduled hours × quota + break.
+    /// Office time is the whole span in the office, so the break has to be spent on top of the scheduled hours.
     var dailyGoal: TimeInterval {
-        TimeInterval(scheduledMinutes * 60 * quotaPercent) / 100
+        TimeInterval(scheduledMinutes * 60 * quotaPercent) / 100 + TimeInterval(breakMinutes * 60)
     }
 
     var hasOfficeNetwork: Bool {
@@ -59,6 +71,8 @@ final class AppSettings {
         static let ipRanges = "ipRanges"
         static let scheduledMinutes = "scheduledMinutes"
         static let quotaPercent = "quotaPercent"
+        static let breakMinutes = "breakMinutes"
+        static let monthlyQuotaPercent = "monthlyQuotaPercent"
     }
 }
 
